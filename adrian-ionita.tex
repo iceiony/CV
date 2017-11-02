@@ -1,0 +1,335 @@
+%%% A template to produce a nice-looking Curriculum Vitae.
+%%% Original : Kieran Healy <kjhealy@gmail.com>
+%%% Customised : Adrian Ionita <adrian@ionita.me>
+%%%
+%%% ------------------------------------------------------------------------
+%%% Requirements that are included in a modern tex distribution:
+%%% ------------------------------------------------------------------------
+%%% xelatex
+%%% fontspec.sty
+%%% hyperrref.sty
+%%% xunicode.sty
+%%% color.sty
+%%% url.sty
+%%% fancyhdr.sty
+%%% memoir.cls
+%%% fontawesome.sty
+%%% 
+%%% ------------------------------------------------------------------------
+%%% Requirements from https://github.com/kjhealy/latex-custom-kjh
+%%% ------------------------------------------------------------------------
+%%% org-preamble-xelatex.sty
+%%% memoir-article-styles.sty
+%%%
+%%% ------------------------------------------------------------------------
+%%% Note
+%%%------------------------------------------------------------------------
+%%% Because this is a hand-tweaked file, be on the look out for \medksip, 
+%%% \bigskip and \newpage commands here and there, which are used to balance
+%%% the layout or avoid widows & orphans, etc. You should of course add or 
+%%% remove these as needed.
+%%%------------------------------------------------------------------------
+
+\documentclass[11pt,article,oneside]{memoir}   
+\usepackage{org-preamble-xelatex} 
+\usepackage{fontawesome,url}
+
+\usepackage{geometry}
+\geometry{
+  rmargin=3.0cm,
+  lmargin=3.0cm,
+  tmargin=2.3cm,
+  bmargin=2.3cm,
+  marginpar=1.8cm,
+}
+
+
+%%%------------------------------------------------------------------------
+%%% Metadata
+%%%------------------------------------------------------------------------
+
+%% Change as needed. Or just add me as a coauthor. Only some of these are 
+%% used below in the hyperref declaration and address banner section.
+\def\myauthor{Adrian Ionita}
+\def\mycoauthor{Kieran Healy}
+\def\mytitle{Curriculum Vitae}
+\def\mycopyright{\myauthor}
+\def\mykeywords{}
+\def\mybibliostyle{plain}
+\def\mybibliocommand{}
+\def\mysubtitle{}
+\def\myemail{adrian@ionita.me}
+\def\myweb{https://github.com/iceiony}
+\def\myphone{0797 187 0684}
+\def\mytwitter{@iceiony}
+\def\mylinkedin{https://uk.linkedin.com/in/adrian-ionita-6a923129}
+\def\myversion{}
+\def\myrevision{}
+
+
+\date{} % not used (revision control instead)
+\def\mykeywords{Adrian, Ionita, Adrian Ionita, Vitae, CV, Resume, DataScience}
+
+\newenvironment{itemize*}{%
+  \renewcommand\labelitemi{\textbullet}
+  \footnotesize
+  \begin{itemize}%
+    \setlength{\itemsep}{0pt}}%
+  {\end{itemize}
+}
+
+\begin{document}
+
+%% Choose fonts for use with xelatex
+%% Minion and Myriad are widely available, from Adobe. 
+%% Pragmata is available to buy at http://www.fsd.it/fonts/pragma.htm
+%% and is worth every penny. Any good monospace font will work fine, though.
+%% Consolas or inconsolata are good alternatives.
+\setromanfont[Mapping={tex-text}, 
+	Numbers={OldStyle},
+	Ligatures={Common}]{Minion Pro}
+\setsansfont[Mapping=tex-text,
+	Ligatures={Common}, 
+	Colour=AA0000]{Unit-Medium}
+\setmonofont[Mapping=tex-text,Scale=0.72]{PragmataPro} 
+
+\newfontface\scheader[SmallCapsFont={Minion Pro},SmallCapsFeatures={Letters=SmallCaps}]{Minion Pro}
+
+\newfontface\contactblock[Mapping={tex-text}, 
+	Numbers={OldStyle},
+	Ligatures={Common}]{Minion Pro Medium Caption}
+
+
+%%%------------------------------------------------------------------------
+%%% Local commands
+%%%------------------------------------------------------------------------
+
+%% Marginal header
+%% Note: as the document goes on you may need to introduce a (gradually increasing)
+%% \vspace element to keep the marginal header pleasingly aligned with the first 
+%% item in the body text. Like this: \marginhead{{\vskip 0.4em}Grants}, or 
+%% \marginhead{{\vskip 0.8em}Service}. Experiment as needed.
+\newcommand{\marginhead}[1]{\marginpar{\textsf{{\footnotesize\vspace{-1em}\flushright #1}}}}
+
+
+%% [optional] custom ampersand (font consistent with the one chosen above)
+\newcommand{\amper}{{\fontspec[Scale=.95,Colour=AA0000]{Minion Pro Medium}\selectfont\&\,}}
+
+%% No bullets on labels
+\renewcommand{\labelitemi}{~} 
+
+%% Custom hanging indent for vita items
+\def\ind{\hangindent=1 true cm\hangafter=1 \noindent}
+%\def\ind{\hangindent=18pt\hangafter=1 \noindent}
+\def\labelitemi{~}
+\renewcommand{\labelitemii}{~}
+
+%%%------------------------------------------------------------------------
+%%% Address and contact block
+%%%------------------------------------------------------------------------
+%\begin{minipage}[t]{2.95in}
+% \flushright {\footnotesize 
+% \href{http://github.com/iceiony}{Iceiony Ltd}, \\ London \\ UK }  
+%
+%\end{minipage}
+%\hfill     
+%\begin{minipage}[t]{0.0in}
+% dummy (needed here)
+%\end{minipage}
+\hfill
+\begin{minipage}[t]{1.3in}
+  \flushright \footnotesize  \contactblock \myphone \, \faPhone \\ 
+  {\scriptsize  \texttt{\href{mailto:\myemail}{\myemail}} \, \faEnvelope} \\
+  {\scriptsize  \texttt{\href{\mylinkedin}{\myauthor}} \, \faLinkedinSquare }  \\ 
+  {\scriptsize  \texttt{\href{\myweb}{\myweb}} \, \faGithub}
+  %{\scriptsize  \texttt{\href{http://twitter.com/iceiony}{\mytwitter}} \, \faTwitter }  \\ 
+\end{minipage}
+
+{\vskip -0.8cm}
+\noindent{\Huge\scheader \textsc{adrian ionita}}
+\reversemarginpar
+
+\bigskip      
+\medskip
+
+\marginhead{\vskip 0.05mm \sffamily profile}
+\noindent\emph{Data scientist focused on computational modeling with a strong background in software engineering.
+Education and industry experience lead to a deep understanding of the scientific and development challenges faced when building artificial intelligence systems.
+I am able to support companies in data science tasks, develop research concepts and turn them into functional software 
+}
+\bigskip
+
+\marginhead{\vskip -1mm \sffamily tech skills}
+
+\ind Programming
+
+\ind \hspace{0.354in} \footnotesize \textbf{R}, \textbf{Python}, SQL, MATLAB, C/C++, JavaScript, Java, C\#, CUDA, Ruby (automation and scripting) \normalsize 
+
+\ind Data Science
+
+\ind \hspace{0.354in} \footnotesize \textbf{Principal Component Analysis}, \textbf{Independent Component Analysis}, Fourier Domains,
+\textbf{Monte Carlo Simulations}, \textbf{Clustering}, Agent Based Modeling, Bayesian Methods, Particle Filters \normalsize
+
+\ind Machine Learning 
+
+\ind \hspace{0.354in} \footnotesize \textbf{Deep Learning} (Classification \& Regression), \textbf{RBF Networks}, SOM, \textbf{RNN}, Committee Machines,
+Belief Propagation, Reinforcement Learning, Hebbian Learning, Improving Generalisation \& Training Speed \normalsize
+
+\bigskip
+ 
+\marginhead{\sffamily projects}
+
+\normalsize
+\medskip
+\ind Semantic Representation In Human Language , Iceiony Ltd \hfill Sep 2016 - Current
+\begin{itemize*}
+  \item Evaluating neural network frameworks, to enable choosing the most appropriate for language processing
+  \item Debunking the latching problem in recurrent network training, leading to better training methods 
+  \item Developing custom sentence tokenising enabling reuse across non-english languages
+  \item Designing unsupervised training techniques for language structure and semantic representation
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: R, Python, Deep Learning (RNN), PyTorch, Dynet}
+
+\normalsize
+\medskip
+\ind Telemetry Events Aggregation\hfill Oct 2017 - Current
+\begin{itemize*}
+  \item Implementing efficient processing of telemetry reading on low spec hardware, enabling reporting to business 
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: R}
+
+\normalsize
+\medskip
+\ind Fuel Savings Prediction Model \hfill Jan 2017 - May 2017
+\begin{itemize*}
+  \item Designing statistical model estimating fuel and repair savings from optimal tire inflation for fleets of vehicles
+  \item Guiding junior analyst in model implementation, teaching good code practices
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: R, Monte Carlo Simulation}
+
+\normalsize
+\medskip
+\ind Customer Flow Forecasting, \href{https://blog.udacity.com/2017/01/data-science-enthusiasts-win-10000.html}{Udacity competition} \hfill Feb 2017 - Mar 2017
+\begin{itemize*}
+  \item Organising and leading team members for competition whilst distributed across world
+  \item Flattening large dataset of customer transactions into time series, enabling easier analysis and prediction  
+  \item Analysing frequency domain of sales, gaining insight into customer buying habits
+  \item Hierarchical and cluster analysis showing similarities in sales between different retailers 
+  \item Experimenting with various time series prediction approaches (e.g. ARIMA, ICA \& Regression, Neural Networks) leading to solution that placed team in top 10\%
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: R, ICA, Fourier Domains, Clustering, Regression}
+
+\normalsize
+\medskip
+\ind \href{https://github.com/iceiony/4ConstraintsTheory/}{Computational Model For Tool Use Reasoning}, University of Birmingham \hfill Apr 2016 - Dec 2016
+\begin{itemize*}
+  \item Laid foundation for a computational model of human tool use, ensuring future extensibility and development 
+  \item Evaluated physics engines for faithful reproduction of real physical interaction, enabling accurate experimentation 
+  \item Proposed novel technique for shape matching, that employs surface level correlation to replicate geometric reasoning
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: C++, MATLAB, Physics Simulation, PCA}
+
+\normalsize
+\medskip
+\ind Products on Virtual Shelves, \href{https://www.hackerrank.com/walmart-codesprint-ml}{Walmart Labs competition} \hfill Oct 2016
+\begin{itemize*}
+  \item Training RBF network on features built from product description to assign products to shelves
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: MATLAB, PCA, NLP, RBF Networks}
+
+\newpage 
+
+\normalsize
+\medskip
+\ind \href{https://github.com/iceiony/gaze-control/}{Robotic Model For Optimal Gaze Control}, University of Birmingham \hfill Dec 2015 - Apr 2016
+\begin{itemize*}
+  \item Implemented neural network model that learns optimal gaze strategies from environment feedback
+  \item Model considers sensory uncertainty in its internal belief state when evaluating choices for gaze locations
+  \item Performance is far beyond random gaze, improving time efficiency by reducing number of ocular fixations 
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: MATLAB, Particle Filters, RBF networks, Reinforcement Learning}
+
+\bigskip 
+
+\marginhead{\sffamily employment}
+
+\normalsize
+\medskip
+\ind Data Scientist NLP \emph{and founder}, Iceiony Ltd \hfill Sep 2016 - Current
+\begin{itemize*}
+  \item Designed and developed a prototype for interactive stories with NLP, proving new product feasibility 
+  \item Researching neural network techniques to enable better semantic parsing in conversational text 
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: R, Python, Node.js, Deep Learning (RNN), PyTorch, Dynet}
+
+\normalsize
+\medskip
+\ind Developer, Opentable International Ltd - \emph{contract} \hfill Aug 2017 - Sept 2017
+\begin{itemize*}
+  \item Migrated legacy solution from outdated .net to a modern version, increasing team productivity by enabling newer development tools 
+  \item Created docker build process to further streamline already impressive deployment and scaling infrastructure 
+  \item Developed new features crosscutting .net and node services to create a better experience to customers
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: C\#, Node.js, Docker, Mono}
+
+\normalsize
+\medskip
+\ind Mobile Developer, BBC - \emph{contract} \hfill Aug 2014 - Sep 2015
+\begin{itemize*}
+  \item Developing mobile apps for staff and reporters, enabling better access to internal systems
+  \item Developing software to create authentication access cards, eliminating turnaround time and costs to suppliers
+  \item Setting up build and infrastructure automation, streamlining the software development process
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: C\#, Java 7, Reactive Extensions, Windows Phone, Android, Jenkins, Chef}
+
+\normalsize
+\medskip
+\ind Software Developer, Wonga.com \hfill Jun 2013 - May 2014
+\begin{itemize*}
+  \item Defining the internal service oriented architecture, that improved system maintenance and scalability
+  \item Implementing new back-end service features, enabling new types of loans to be served to customers
+  \item Adding continuous integration tooling, which improved the robustness of deployments
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: C\#, NserviceBus, Nhibernate, Jenkins, Powershell}
+
+\normalsize
+\medskip
+\ind Software Engineer, Wiggle ltd \hfill Apr 2011 - Jun 2013
+\begin{itemize*}
+  \item Developing and refactoring legacy consumer site, that gradually improved the rate of feature development  
+  \item Automated load testing, which highlighted devastating issues experienced at peak website traffic
+  \item Developed and integrated internal systems using micro-services architecture, which solved reliability issues experienced across the company 
+\end{itemize*}
+\ind \hspace{0.35in} \footnotesize \emph{Key Technologies: C\#, ASP.NET, MVC2, T-SQL, NserviceBus, RavenDB, Python, Micro-Services}
+
+\normalsize
+\bigskip
+\marginhead{\vskip -1mm \sffamily education}
+
+\ind MSc. Computational Neuroscience and Cognitive Robotics, University Of Birmingham, \hfill 2016
+
+\ind \hspace{0.35in} \footnotesize Focused on computational methods, modeling and neural networks \normalsize
+
+\ind \hspace{0.35in} \footnotesize Graduated with distinction \normalsize
+
+\ind MSc. Computer Security, University Of Birmingham, \hfill 2010
+
+\ind \hspace{0.35in} \footnotesize Graduated with distinction \normalsize
+
+\ind Oracle Academic Initiative, University Of Bucharest, Romania, \hfill 2009
+
+\ind BSc. Computer Science, University Of Bucharest, Romania, \hfill 2009
+
+\ind \hspace{0.35in} \footnotesize Received scholarship for academic performance \\ Equivalent of distinction \normalsize
+
+\ind Diploma for Excellence in Computer Science, National Center For Excellence, Romania, \hfill 2006
+
+\ind \hspace{0.35in} \footnotesize Awarded for academic performance in advanced algorithmics \normalsize
+
+\normalsize
+\bigskip
+\marginhead{\vskip -1mm \sffamily references}
+
+\ind Available on request
+
+\end{document}
