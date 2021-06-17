@@ -33,6 +33,7 @@
 \documentclass[11pt,article,oneside]{memoir}   
 \usepackage{org-preamble-xelatex} 
 \usepackage{fontawesome,url}
+\usepackage{fancyhdr}
 
 \usepackage{geometry}
 \geometry{
@@ -136,20 +137,14 @@
 %\begin{minipage}[t]{0.0in}
 % dummy (needed here)
 %\end{minipage}
-\hfill
-\begin{minipage}[t]{1.3in}
-  \flushright \footnotesize  \contactblock \myphone \, \faPhone \\ 
-  {\scriptsize  \texttt{\href{mailto:\myemail}{\myemail}} \, \faEnvelope} \\
-  {\scriptsize  \texttt{\href{\mylinkedin}{\myauthor}} \, \faLinkedinSquare }  \\ 
-  {\scriptsize  \texttt{\href{\myweb}{\myweb}} \, \faGithub}
-  %{\scriptsize  \texttt{\href{http://twitter.com/iceiony}{\mytwitter}} \, \faTwitter }  \\ 
-\end{minipage}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\lhead{\includegraphics{epam_logo.png}}
 
-{\vskip -0.8cm}
-\noindent{\Huge\scheader \textsc{adrian ionita}}
+
+\noindent{ \Huge \textsc{adrian ionita} }
 \reversemarginpar
 
-\bigskip      
 \medskip
 
 \hyphenpenalty 10000
